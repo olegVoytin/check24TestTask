@@ -9,7 +9,7 @@ import Foundation
 
 struct AvailableProductCellViewModel {
     let name: String
-    let type: `Type`
+    let type: ProductType
     let id: Int
     let imageURL: String
     let colorCode: String
@@ -17,14 +17,6 @@ struct AvailableProductCellViewModel {
     let description: String
     let rating: Float
     let price: Price
-
-    enum `Type`: String {
-        case triangle = "Triangle"
-        case circle = "Circle"
-        case square = "Square"
-        case hexagon = "Hexagon"
-        case other
-    }
 
     struct Price {
         let value: Float

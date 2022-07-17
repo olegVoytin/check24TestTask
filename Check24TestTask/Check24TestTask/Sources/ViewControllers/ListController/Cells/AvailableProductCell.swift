@@ -61,7 +61,7 @@ final class AvailableProductCell: UITableViewCell {
     }
 
     func setup(with viewModel: AvailableProductCellViewModel) {
-        
+
     }
 }
 
@@ -72,6 +72,7 @@ private extension AvailableProductCell {
         nameLabel.reset()
         descriptionLabel.reset()
         priceLabel.reset()
+        dateLabel.reset()
     }
 
     func setupView() {

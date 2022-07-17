@@ -33,6 +33,8 @@
 		06B4E8002884060F00053F6A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7FF2884060F00053F6A /* UIView+Extensions.swift */; };
 		06B4E8022884077A00053F6A /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8012884077A00053F6A /* UILabel+Extensions.swift */; };
 		06B4E80528840C8F00053F6A /* AvailableProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */; };
+		06B4E80728840F6700053F6A /* NonAvailableProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E80628840F6700053F6A /* NonAvailableProductCellViewModel.swift */; };
+		06B4E8092884112500053F6A /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8082884112500053F6A /* ProductType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		06B4E7FF2884060F00053F6A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		06B4E8012884077A00053F6A /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductCellViewModel.swift; sourceTree = "<group>"; };
+		06B4E80628840F6700053F6A /* NonAvailableProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonAvailableProductCellViewModel.swift; sourceTree = "<group>"; };
+		06B4E8082884112500053F6A /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */,
+				06B4E80628840F6700053F6A /* NonAvailableProductCellViewModel.swift */,
+				06B4E8082884112500053F6A /* ProductType.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 				06B4E8022884077A00053F6A /* UILabel+Extensions.swift in Sources */,
 				06B4E7E92883F55900053F6A /* ServicesLocator.swift in Sources */,
 				06B4E7E02883F04500053F6A /* DetailsRouter.swift in Sources */,
+				06B4E8092884112500053F6A /* ProductType.swift in Sources */,
 				06AB6FC62883E1BE005C8685 /* ListViewController.swift in Sources */,
 				06B4E7F82884015900053F6A /* Data+Extensions.swift in Sources */,
 				06B4E7E52883F19500053F6A /* ApiService.swift in Sources */,
@@ -320,6 +327,7 @@
 				06AB6FDC2883ED74005C8685 /* ListViewControllerPresenter.swift in Sources */,
 				06B4E7FD2884055F00053F6A /* NonAvailableProductCell.swift in Sources */,
 				06AB6FC42883E1BE005C8685 /* SceneDelegate.swift in Sources */,
+				06B4E80728840F6700053F6A /* NonAvailableProductCellViewModel.swift in Sources */,
 				06B4E7DC2883EFFC00053F6A /* DetailsConfigurator.swift in Sources */,
 				06B4E7DE2883F00800053F6A /* DetailsPresenter.swift in Sources */,
 				06AB6FDE2883ED80005C8685 /* ListViewControllerRouter.swift in Sources */,
