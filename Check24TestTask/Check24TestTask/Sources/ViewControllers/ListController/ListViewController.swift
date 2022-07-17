@@ -39,8 +39,11 @@ final class ListViewController: UIViewController, ListViewControllerViewProtocol
         }
     }
 
-    private let backgroundView = UIView().prepareForAutolayout()
-    private let titleView = TitleView().prepareForAutolayout()
+    private let backgroundView: UIView = {
+        let view = UIView().prepareForAutolayout()
+        view.backgroundColor = .blue
+        return view
+    }()
     private let filterView = FilterView().prepareForAutolayout()
     private let loadingView = UIActivityIndicatorView().prepareForAutolayout()
 
@@ -61,6 +64,7 @@ final class ListViewController: UIViewController, ListViewControllerViewProtocol
         presenter.onViewDidLoad()
         createHierarchy()
         setupConstraints()
+        title = "Check24TestTask"
     }
 
     func update(dataStorage: TableViewDataStorage) {
@@ -96,7 +100,6 @@ extension ListViewController: UITableViewDelegate {
 private extension ListViewController {
     func createHierarchy() {
         view.addSubview(backgroundView)
-        backgroundView.addSubview(titleView)
         backgroundView.addSubview(filterView)
         backgroundView.addSubview(tableView)
         backgroundView.addSubview(loadingView)
@@ -109,11 +112,7 @@ private extension ListViewController {
             backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor),
             backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor),
 
-            titleView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor),
-            titleView.rightAnchor.constraint(equalTo: backgroundView.rightAnchor),
-            titleView.topAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.topAnchor),
-
-            filterView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            filterView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             filterView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor),
             filterView.rightAnchor.constraint(equalTo: backgroundView.rightAnchor),
 

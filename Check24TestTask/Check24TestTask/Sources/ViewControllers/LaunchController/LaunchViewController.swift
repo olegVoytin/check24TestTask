@@ -17,7 +17,7 @@ final class LaunchViewController: UIViewController {
     private func showListController() {
         let controller = UINavigationController(
             rootViewController: ListViewControllerConfigurator.make(apiService: ServicesLocator.apiService)
-        ) 
+        )
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: false, completion: nil)
     }
