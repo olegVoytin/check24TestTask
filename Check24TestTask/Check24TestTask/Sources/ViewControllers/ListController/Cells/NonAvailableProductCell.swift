@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NonAvailableProductCell: UITableViewCell {
+final class NonAvailableProductCell: TableViewCell {
 
     private enum Constants {
         static let borderOffset: CGFloat = 16
@@ -34,25 +34,20 @@ final class NonAvailableProductCell: UITableViewCell {
     private let starsView = UIView().prepareForAutolayout()
 
     private let stackView: UIStackView = {
-        let stack = UIStackView()
+        let stack = UIStackView().prepareForAutolayout()
         stack.spacing = Constants.verticalOffset
         stack.axis = .vertical
         return stack
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupView()
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         resetData()
+    }
+
+    override func setupView() {
+        createHierarchy()
+        setupConstraints()
     }
 
     func setup(with viewModel: NonAvailableProductCellViewModel) {
@@ -66,11 +61,6 @@ private extension NonAvailableProductCell {
         productImageView.image = nil
         nameLabel.reset()
         descriptionLabel.reset()
-    }
-
-    func setupView() {
-        createHierarchy()
-        setupConstraints()
     }
 
     func createHierarchy() {

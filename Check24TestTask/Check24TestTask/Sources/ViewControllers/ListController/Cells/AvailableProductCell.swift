@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AvailableProductCell: UITableViewCell {
+final class AvailableProductCell: TableViewCell {
 
     private enum Constants {
         static let borderOffset: CGFloat = 16
@@ -45,19 +45,14 @@ final class AvailableProductCell: UITableViewCell {
     private let nameView = UIView().prepareForAutolayout()
     private let priceView = UIView().prepareForAutolayout()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupView()
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         resetData()
+    }
+
+    override func setupView() {
+        createHierarchy()
+        setupConstraints()
     }
 
     func setup(with viewModel: AvailableProductCellViewModel) {
@@ -73,11 +68,6 @@ private extension AvailableProductCell {
         descriptionLabel.reset()
         priceLabel.reset()
         dateLabel.reset()
-    }
-
-    func setupView() {
-        createHierarchy()
-        setupConstraints()
     }
 
     func createHierarchy() {

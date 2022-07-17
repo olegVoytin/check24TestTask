@@ -35,6 +35,7 @@
 		06B4E80528840C8F00053F6A /* AvailableProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */; };
 		06B4E80728840F6700053F6A /* NonAvailableProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E80628840F6700053F6A /* NonAvailableProductCellViewModel.swift */; };
 		06B4E8092884112500053F6A /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8082884112500053F6A /* ProductType.swift */; };
+		06B4E80E288411B500053F6A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E80D288411B500053F6A /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductCellViewModel.swift; sourceTree = "<group>"; };
 		06B4E80628840F6700053F6A /* NonAvailableProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonAvailableProductCellViewModel.swift; sourceTree = "<group>"; };
 		06B4E8082884112500053F6A /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
+		06B4E80D288411B500053F6A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		06AB6FD62883ECA6005C8685 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				06B4E80C288411A500053F6A /* BaseClasses */,
 				06B4E803288407C900053F6A /* ViewModels */,
 				06B4E7F22883FE3700053F6A /* Utils */,
 				06B4E7EF2883FBC900053F6A /* Models */,
@@ -237,6 +240,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		06B4E80C288411A500053F6A /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				06B4E80D288411B500053F6A /* TableViewCell.swift */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +332,7 @@
 				06B4E80528840C8F00053F6A /* AvailableProductCellViewModel.swift in Sources */,
 				06B4E7F42883FE4000053F6A /* UnknownCaseRepresentable.swift in Sources */,
 				06AB6FDA2883ED61005C8685 /* ListViewControllerConfigurator.swift in Sources */,
+				06B4E80E288411B500053F6A /* TableViewCell.swift in Sources */,
 				06B4E7EC2883F68000053F6A /* LaunchViewController.swift in Sources */,
 				06AB6FC22883E1BE005C8685 /* AppDelegate.swift in Sources */,
 				06B4E7DA2883EFF100053F6A /* DetailsViewController.swift in Sources */,
