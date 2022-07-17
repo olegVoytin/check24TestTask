@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ListViewControllerPresenterProtocol: AnyObject {
-
+    func onViewDidLoad()
 }
 
 final class ListViewControllerPresenter: ListViewControllerPresenterProtocol {
@@ -19,5 +19,9 @@ final class ListViewControllerPresenter: ListViewControllerPresenterProtocol {
 
     init(view: ListViewControllerViewProtocol) {
         self.view = view
+    }
+
+    func onViewDidLoad() {
+        interactor.getList()
     }
 }

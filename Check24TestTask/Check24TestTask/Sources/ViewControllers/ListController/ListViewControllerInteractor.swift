@@ -8,14 +8,20 @@
 import Foundation
 
 protocol ListViewControllerInteractorProtocol: AnyObject {
-
+    func getList()
 }
 
 final class ListViewControllerInteractor: ListViewControllerInteractorProtocol {
 
     private weak var presenter: ListViewControllerPresenterProtocol!
+    private let apiService: ApiServiceProtocol
 
-    init(presenter: ListViewControllerPresenterProtocol) {
+    init(presenter: ListViewControllerPresenterProtocol, apiService: ApiServiceProtocol) {
         self.presenter = presenter
+        self.apiService = apiService
+    }
+
+    func getList() {
+        apiService.getProductList()
     }
 }

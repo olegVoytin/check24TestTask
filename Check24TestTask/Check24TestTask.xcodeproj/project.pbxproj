@@ -21,6 +21,9 @@
 		06B4E7DC2883EFFC00053F6A /* DetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7DB2883EFFC00053F6A /* DetailsConfigurator.swift */; };
 		06B4E7DE2883F00800053F6A /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7DD2883F00800053F6A /* DetailsPresenter.swift */; };
 		06B4E7E02883F04500053F6A /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7DF2883F04500053F6A /* DetailsRouter.swift */; };
+		06B4E7E52883F19500053F6A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7E42883F19500053F6A /* ApiService.swift */; };
+		06B4E7E92883F55900053F6A /* ServicesLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7E82883F55900053F6A /* ServicesLocator.swift */; };
+		06B4E7EC2883F68000053F6A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7EB2883F68000053F6A /* LaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		06B4E7DB2883EFFC00053F6A /* DetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsConfigurator.swift; sourceTree = "<group>"; };
 		06B4E7DD2883F00800053F6A /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		06B4E7DF2883F04500053F6A /* DetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
+		06B4E7E42883F19500053F6A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		06B4E7E82883F55900053F6A /* ServicesLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesLocator.swift; sourceTree = "<group>"; };
+		06B4E7EB2883F68000053F6A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 			children = (
 				06AB6FC12883E1BE005C8685 /* AppDelegate.swift */,
 				06AB6FC32883E1BE005C8685 /* SceneDelegate.swift */,
+				06B4E7E82883F55900053F6A /* ServicesLocator.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -92,7 +99,7 @@
 		06AB6FD62883ECA6005C8685 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				06B4E7E12883F05900053F6A /* Api */,
+				06B4E7E62883F19B00053F6A /* Services */,
 				06AB6FD82883ECDC005C8685 /* ViewControllers */,
 				06AB6FCC2883E1BE005C8685 /* LaunchScreen.storyboard */,
 				06AB6FC72883E1BE005C8685 /* Main.storyboard */,
@@ -111,6 +118,7 @@
 		06AB6FD82883ECDC005C8685 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				06B4E7EA2883F66C00053F6A /* LaunchController */,
 				06B4E7D82883EFD600053F6A /* DetailsController */,
 				06B4E7D72883EFB000053F6A /* ListController */,
 			);
@@ -140,11 +148,28 @@
 			path = DetailsController;
 			sourceTree = "<group>";
 		};
-		06B4E7E12883F05900053F6A /* Api */ = {
+		06B4E7E62883F19B00053F6A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				06B4E7E72883F2B300053F6A /* Api */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		06B4E7E72883F2B300053F6A /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				06B4E7E42883F19500053F6A /* ApiService.swift */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		06B4E7EA2883F66C00053F6A /* LaunchController */ = {
+			isa = PBXGroup;
+			children = (
+				06B4E7EB2883F68000053F6A /* LaunchViewController.swift */,
+			);
+			path = LaunchController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B4E7E92883F55900053F6A /* ServicesLocator.swift in Sources */,
 				06B4E7E02883F04500053F6A /* DetailsRouter.swift in Sources */,
 				06AB6FC62883E1BE005C8685 /* ListViewController.swift in Sources */,
+				06B4E7E52883F19500053F6A /* ApiService.swift in Sources */,
 				06AB6FDA2883ED61005C8685 /* ListViewControllerConfigurator.swift in Sources */,
+				06B4E7EC2883F68000053F6A /* LaunchViewController.swift in Sources */,
 				06AB6FC22883E1BE005C8685 /* AppDelegate.swift in Sources */,
 				06B4E7DA2883EFF100053F6A /* DetailsViewController.swift in Sources */,
 				06AB6FDC2883ED74005C8685 /* ListViewControllerPresenter.swift in Sources */,

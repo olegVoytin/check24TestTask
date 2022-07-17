@@ -8,11 +8,11 @@
 import Foundation
 
 enum ListViewControllerConfigurator {
-    static func make() -> ListViewController {
+    static func make(apiService: ApiServiceProtocol) -> ListViewController {
         let view = ListViewController()
         let presenter = ListViewControllerPresenter(view: view)
         let router = ListViewControllerRouter(view: view)
-        let interactor = ListViewControllerInteractor(presenter: presenter)
+        let interactor = ListViewControllerInteractor(presenter: presenter, apiService: apiService)
 
         view.presenter = presenter
         presenter.interactor = interactor

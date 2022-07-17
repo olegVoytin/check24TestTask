@@ -17,9 +17,8 @@ final class ListViewController: UIViewController, ListViewControllerViewProtocol
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        presenter.onViewDidLoad()
     }
-
 
 }
 
