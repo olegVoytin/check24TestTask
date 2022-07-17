@@ -9,12 +9,21 @@ import Foundation
 
 struct ProductListModel: Decodable {
     let header: Header
-    let filters: [String]
+    let filters: [Filter]
     let products: [Product]
 
     struct Header: Decodable {
         let headerTitle: String
         let headerDescription: String
+    }
+
+    enum Filter: String, Decodable, UnknownCaseRepresentable {
+        case all = "Alle"
+        case available = "Verfügbar"
+        case favourite = "Vorgemerkt"
+        case other
+
+        static let unknownCase: ProductListModel.Filter = .other
     }
 
     struct Product: Decodable {
