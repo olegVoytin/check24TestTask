@@ -7,20 +7,33 @@
 
 import Foundation
 
-protocol ApiServiceProtocol {
+typealias GetProductListResult = Result<ProductListModel, Error>
 
-    func getProductList()
+protocol ApiServiceProtocol {
+    func getProductList(onComplete: @escaping (GetProductListResult) -> Void)
 }
 
 final class ApiService: ApiServiceProtocol {
 
     private let session = URLSession(configuration: URLSessionConfiguration.default)
 
-    func getProductList() {
-        let task = session.dataTask(with: URL(string: "http://app.check24.de/products-test.json")!) { data, response, error in
-            print(data)
-            print(response)
-            print(error)
+    func getProductList(onComplete: @escaping (GetProductListResult) -> Void) {
+        guard let url = RestActions.getProductList.actionURL else { return }
+        let task = session.dataTask(with: url) { data, _, error in
+            if let error = error {
+                onComplete(.failure(error))
+                return
+            }
+
+            if let data = data {
+                if let result: ProductListModel = data.decode() {
+                    onComplete(.success(result))
+                } else {
+                    // cannot decode
+                }
+            } else {
+                // there is no data
+            }
         }
 
         task.resume()

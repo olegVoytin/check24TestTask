@@ -24,6 +24,10 @@
 		06B4E7E52883F19500053F6A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7E42883F19500053F6A /* ApiService.swift */; };
 		06B4E7E92883F55900053F6A /* ServicesLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7E82883F55900053F6A /* ServicesLocator.swift */; };
 		06B4E7EC2883F68000053F6A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7EB2883F68000053F6A /* LaunchViewController.swift */; };
+		06B4E7EE2883F99200053F6A /* RestActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7ED2883F99200053F6A /* RestActions.swift */; };
+		06B4E7F12883FBE900053F6A /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7F02883FBE900053F6A /* ProductListModel.swift */; };
+		06B4E7F42883FE4000053F6A /* UnknownCaseRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7F32883FE4000053F6A /* UnknownCaseRepresentable.swift */; };
+		06B4E7F82884015900053F6A /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7F72884015900053F6A /* Data+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		06B4E7E42883F19500053F6A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		06B4E7E82883F55900053F6A /* ServicesLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesLocator.swift; sourceTree = "<group>"; };
 		06B4E7EB2883F68000053F6A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		06B4E7ED2883F99200053F6A /* RestActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestActions.swift; sourceTree = "<group>"; };
+		06B4E7F02883FBE900053F6A /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
+		06B4E7F32883FE4000053F6A /* UnknownCaseRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownCaseRepresentable.swift; sourceTree = "<group>"; };
+		06B4E7F72884015900053F6A /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,10 @@
 		06AB6FD62883ECA6005C8685 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				06B4E7F22883FE3700053F6A /* Utils */,
+				06B4E7EF2883FBC900053F6A /* Models */,
 				06B4E7E62883F19B00053F6A /* Services */,
 				06AB6FD82883ECDC005C8685 /* ViewControllers */,
-				06AB6FCC2883E1BE005C8685 /* LaunchScreen.storyboard */,
-				06AB6FC72883E1BE005C8685 /* Main.storyboard */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -118,6 +126,8 @@
 		06AB6FD82883ECDC005C8685 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				06AB6FCC2883E1BE005C8685 /* LaunchScreen.storyboard */,
+				06AB6FC72883E1BE005C8685 /* Main.storyboard */,
 				06B4E7EA2883F66C00053F6A /* LaunchController */,
 				06B4E7D82883EFD600053F6A /* DetailsController */,
 				06B4E7D72883EFB000053F6A /* ListController */,
@@ -160,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				06B4E7E42883F19500053F6A /* ApiService.swift */,
+				06B4E7ED2883F99200053F6A /* RestActions.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -170,6 +181,23 @@
 				06B4E7EB2883F68000053F6A /* LaunchViewController.swift */,
 			);
 			path = LaunchController;
+			sourceTree = "<group>";
+		};
+		06B4E7EF2883FBC900053F6A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				06B4E7F02883FBE900053F6A /* ProductListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		06B4E7F22883FE3700053F6A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				06B4E7F32883FE4000053F6A /* UnknownCaseRepresentable.swift */,
+				06B4E7F72884015900053F6A /* Data+Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +274,10 @@
 				06B4E7E92883F55900053F6A /* ServicesLocator.swift in Sources */,
 				06B4E7E02883F04500053F6A /* DetailsRouter.swift in Sources */,
 				06AB6FC62883E1BE005C8685 /* ListViewController.swift in Sources */,
+				06B4E7F82884015900053F6A /* Data+Extensions.swift in Sources */,
 				06B4E7E52883F19500053F6A /* ApiService.swift in Sources */,
+				06B4E7EE2883F99200053F6A /* RestActions.swift in Sources */,
+				06B4E7F42883FE4000053F6A /* UnknownCaseRepresentable.swift in Sources */,
 				06AB6FDA2883ED61005C8685 /* ListViewControllerConfigurator.swift in Sources */,
 				06B4E7EC2883F68000053F6A /* LaunchViewController.swift in Sources */,
 				06AB6FC22883E1BE005C8685 /* AppDelegate.swift in Sources */,
@@ -257,6 +288,7 @@
 				06B4E7DE2883F00800053F6A /* DetailsPresenter.swift in Sources */,
 				06AB6FDE2883ED80005C8685 /* ListViewControllerRouter.swift in Sources */,
 				06AB6FE02883ED8B005C8685 /* ListViewControllerInteractor.swift in Sources */,
+				06B4E7F12883FBE900053F6A /* ProductListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

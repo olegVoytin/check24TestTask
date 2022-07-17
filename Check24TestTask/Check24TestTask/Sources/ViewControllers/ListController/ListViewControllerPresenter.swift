@@ -22,6 +22,20 @@ final class ListViewControllerPresenter: ListViewControllerPresenterProtocol {
     }
 
     func onViewDidLoad() {
-        interactor.getList()
+        interactor.getList(onComplete: { [weak self] result in
+            self?.handleGetListResult(result)
+        })
+    }
+}
+
+// MARK: - Private
+private extension ListViewControllerPresenter {
+    func handleGetListResult(_ result: GetProductListResult) {
+        switch result {
+        case .success(let model):
+            print(model)
+        case .failure(let error):
+            break
+        }
     }
 }

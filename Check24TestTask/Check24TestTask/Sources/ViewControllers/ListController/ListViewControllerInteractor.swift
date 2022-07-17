@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ListViewControllerInteractorProtocol: AnyObject {
-    func getList()
+    func getList(onComplete: @escaping (GetProductListResult) -> Void)
 }
 
 final class ListViewControllerInteractor: ListViewControllerInteractorProtocol {
@@ -21,7 +21,7 @@ final class ListViewControllerInteractor: ListViewControllerInteractorProtocol {
         self.apiService = apiService
     }
 
-    func getList() {
-        apiService.getProductList()
+    func getList(onComplete: @escaping (GetProductListResult) -> Void) {
+        apiService.getProductList(onComplete: onComplete)
     }
 }
