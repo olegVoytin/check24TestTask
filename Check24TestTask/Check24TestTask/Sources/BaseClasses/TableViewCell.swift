@@ -7,8 +7,10 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+typealias ReusableTableViewCell = UITableViewCell & ReusableView
 
+class TableViewCell: ReusableTableViewCell {
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
