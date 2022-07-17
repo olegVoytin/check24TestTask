@@ -8,9 +8,9 @@
 import Foundation
 
 enum DetailsConfigurator {
-    static func make() -> DetailsViewController {
+    static func make(with model: ProductListModel.Product) -> DetailsViewController {
         let view = DetailsViewController()
-        let presenter = DetailsPresenter(view: view)
+        let presenter = DetailsPresenter(view: view, model: model)
         let router = DetailsRouter(view: view)
 
         view.presenter = presenter

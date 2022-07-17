@@ -8,6 +8,8 @@
 import UIKit
 
 protocol TableViewCellModelProtocol {
+    var id: Int { get }
+
     func createCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
 }
 

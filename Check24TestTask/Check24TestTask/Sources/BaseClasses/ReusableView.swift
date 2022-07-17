@@ -7,11 +7,11 @@
 
 import Foundation
 
-public protocol ReusableView {
+protocol ReusableView {
     static var reuseIdentifier: String { get }
 }
 
-public extension ReusableView {
+extension ReusableView {
 
     static var reuseIdentifier: String {
         String(describing: self)

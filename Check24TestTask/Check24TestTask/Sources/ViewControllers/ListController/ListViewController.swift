@@ -7,11 +7,31 @@
 
 import UIKit
 
+enum LoadingState {
+    case loading
+    case loaded
+}
+
 protocol ListViewControllerViewProtocol: AnyObject {
+    var loadingState: LoadingState { get set }
+
     func update(dataStorage: TableViewDataStorage)
 }
 
 final class ListViewController: UIViewController, ListViewControllerViewProtocol {
+
+    var loadingState: LoadingState = .loading {
+        didSet {
+            switch loadingState {
+            case .loading:
+                loadingView.isHidden = false
+                loadingView.startAnimating()
+            case .loaded:
+                loadingView.isHidden = true
+                loadingView.stopAnimating()
+            }
+        }
+    }
 
     private var dataStorage = TableViewDataStorage.empty {
         didSet {
@@ -22,10 +42,12 @@ final class ListViewController: UIViewController, ListViewControllerViewProtocol
     private let backgroundView = UIView().prepareForAutolayout()
     private let titleView = TitleView().prepareForAutolayout()
     private let filterView = FilterView().prepareForAutolayout()
+    private let loadingView = UIActivityIndicatorView().prepareForAutolayout()
 
     private lazy var tableView: UITableView = {
         let table = UITableView().prepareForAutolayout()
         table.dataSource = self
+        table.delegate = self
         table.separatorStyle = .none
         table.register(AvailableProductCell.self, forCellReuseIdentifier: AvailableProductCell.reuseIdentifier)
         table.register(NonAvailableProductCell.self, forCellReuseIdentifier: NonAvailableProductCell.reuseIdentifier)
@@ -61,6 +83,15 @@ extension ListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defer { tableView.deselectRow(at: indexPath, animated: true) }
+        let id = dataStorage.didSelectRowAt(indexPath: indexPath).id
+        presenter.onTableViewCellSelected(productID: id)
+    }
+}
+
 // MARK: - Private
 private extension ListViewController {
     func createHierarchy() {
@@ -68,6 +99,7 @@ private extension ListViewController {
         backgroundView.addSubview(titleView)
         backgroundView.addSubview(filterView)
         backgroundView.addSubview(tableView)
+        backgroundView.addSubview(loadingView)
     }
 
     func setupConstraints() {
@@ -89,6 +121,11 @@ private extension ListViewController {
             tableView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: backgroundView.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.bottomAnchor),
+
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            loadingView.rightAnchor.constraint(equalTo: view.rightAnchor),
         ])
     }
 }

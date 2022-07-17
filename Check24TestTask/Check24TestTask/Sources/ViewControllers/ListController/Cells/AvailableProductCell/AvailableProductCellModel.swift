@@ -8,6 +8,7 @@
 import UIKit
 
 struct AvailableProductCellModel: TableViewCellModelProtocol {
+    var id: Int
     let viewModel: AvailableProductCellViewModel
 
     func createCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {

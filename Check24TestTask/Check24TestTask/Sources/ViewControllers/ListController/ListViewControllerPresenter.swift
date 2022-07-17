@@ -9,22 +9,32 @@ import Foundation
 
 protocol ListViewControllerPresenterProtocol: AnyObject {
     func onViewDidLoad()
+    func onTableViewCellSelected(productID: Int)
 }
 
 final class ListViewControllerPresenter: ListViewControllerPresenterProtocol {
 
-    private weak var view: ListViewControllerViewProtocol!
     var interactor: ListViewControllerInteractorProtocol! // injected
     var router: ListViewControllerRouterProtocol! // injected
+
+    private weak var view: ListViewControllerViewProtocol!
+    private var model: ProductListModel?
 
     init(view: ListViewControllerViewProtocol) {
         self.view = view
     }
 
     func onViewDidLoad() {
+        view.loadingState = .loading
         interactor.getList(onComplete: { [weak self] result in
+            self?.view.loadingState = .loaded
             self?.handleGetListResult(result)
         })
+    }
+
+    func onTableViewCellSelected(productID: Int) {
+        guard let product = model?.products.first(where: { $0.id == productID }) else { return }
+        router.openProductScreen(product)
     }
 }
 
@@ -33,6 +43,7 @@ private extension ListViewControllerPresenter {
     func handleGetListResult(_ result: GetProductListResult) {
         switch result {
         case .success(let model):
+            self.model = model
             createDataStorage(model: model)
         case .failure(let error):
             break
@@ -55,6 +66,7 @@ private extension ListViewControllerPresenter {
             if $0.available {
                 return TableViewRow(
                     cellModel: AvailableProductCellModel(
+                        id: $0.id,
                         viewModel: AvailableProductCellViewModel(
                             name: $0.name,
                             type: ProductType(rawValue: $0.type.rawValue) ?? .other,
@@ -76,6 +88,7 @@ private extension ListViewControllerPresenter {
             } else {
                 return TableViewRow(
                     cellModel: NonAvailableProductCellModel(
+                        id: $0.id,
                         viewModel: NonAvailableProductCellViewModel(
                             name: $0.name,
                             type: ProductType(rawValue: $0.type.rawValue) ?? .other,

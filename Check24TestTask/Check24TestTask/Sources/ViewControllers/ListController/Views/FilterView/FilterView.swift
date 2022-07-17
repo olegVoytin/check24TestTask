@@ -49,6 +49,7 @@ final class FilterView: View {
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+            self.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

@@ -13,10 +13,13 @@ protocol DetailsPresenterProtocol: AnyObject {
 
 final class DetailsPresenter: DetailsPresenterProtocol {
 
-    private weak var view: DetailsViewControllerProtocol!
     var router: DetailsRouterProtocol! // injected
 
-    init(view: DetailsViewControllerProtocol) {
+    private weak var view: DetailsViewControllerProtocol!
+    private let model: ProductListModel.Product
+
+    init(view: DetailsViewControllerProtocol, model: ProductListModel.Product) {
         self.view = view
+        self.model = model
     }
 }
