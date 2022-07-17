@@ -10,7 +10,7 @@ import Foundation
 struct ProductListModel: Decodable {
     let header: Header
     let filters: [Filter]
-    let products: [Product]
+    var products: [Product]
 
     struct Header: Decodable {
         let headerTitle: String

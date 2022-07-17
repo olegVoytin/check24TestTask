@@ -12,8 +12,11 @@ final class FilterView: View {
     private let stackView: UIStackView = {
         let stack = UIStackView().prepareForAutolayout()
         stack.axis = .horizontal
+        stack.distribution = .fillEqually
         return stack
     }()
+
+    var onTapFilter: ((FilterViewModel.Filter) -> Void)?
 
     override func initialization() {
         backgroundColor = .gray
@@ -23,19 +26,11 @@ final class FilterView: View {
 
     func setup(with viewModel: FilterViewModel) {
         viewModel.filters.forEach {
-            let button = UIButton().prepareForAutolayout()
+            let button = FilterButton().prepareForAutolayout()
+            button.filter = $0
             button.setTitle($0.rawValue, for: .normal)
-
-//            switch $0 {
-//            case .all:
-//                button.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
-//            case .available:
-//                button.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
-//            case .favourite:
-//                button.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
-//            case .other:
-//                break
-//            }
+            button.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
+            stackView.addArrangedSubview(button)
         }
     }
 
@@ -51,5 +46,10 @@ final class FilterView: View {
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
             self.heightAnchor.constraint(equalToConstant: 60)
         ])
+    }
+
+    @objc
+    private func onTapButton(_ selector: FilterButton) {
+        onTapFilter?(selector.filter)
     }
 }

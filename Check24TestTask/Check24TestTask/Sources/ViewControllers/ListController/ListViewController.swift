@@ -16,6 +16,7 @@ protocol ListViewControllerViewProtocol: AnyObject {
     var loadingState: LoadingState { get set }
 
     func update(dataStorage: TableViewDataStorage)
+    func setupFilterView(with viewModel: FilterViewModel)
 }
 
 final class ListViewController: UIViewController, ListViewControllerViewProtocol {
@@ -69,6 +70,14 @@ final class ListViewController: UIViewController, ListViewControllerViewProtocol
 
     func update(dataStorage: TableViewDataStorage) {
         self.dataStorage = dataStorage
+    }
+
+    func setupFilterView(with viewModel: FilterViewModel) {
+        filterView.setup(with: viewModel)
+
+        filterView.onTapFilter = { [weak self] filter in
+            self?.presenter.onTapFilter(filter)
+        }
     }
 }
 

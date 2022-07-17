@@ -10,6 +10,7 @@ import Foundation
 protocol ListViewControllerPresenterProtocol: AnyObject {
     func onViewDidLoad()
     func onTableViewCellSelected(productID: Int)
+    func onTapFilter(_ filter: FilterViewModel.Filter)
 }
 
 final class ListViewControllerPresenter: ListViewControllerPresenterProtocol {
@@ -36,6 +37,24 @@ final class ListViewControllerPresenter: ListViewControllerPresenterProtocol {
         guard let product = model?.products.first(where: { $0.id == productID }) else { return }
         router.openProductScreen(product)
     }
+
+    func onTapFilter(_ filter: FilterViewModel.Filter) {
+        switch filter {
+        case .all:
+            guard let model = model else { return }
+            createDataStorage(model: model)
+        case .available:
+            guard let model = model else { return }
+
+            var modelCopy = model
+            modelCopy.products = model.products.filter { $0.available }
+            createDataStorage(model: modelCopy)
+        case .favourite:
+            break // cant figure out how detect favourite product
+        case .other:
+            break
+        }
+    }
 }
 
 // MARK: - Private
@@ -45,6 +64,13 @@ private extension ListViewControllerPresenter {
         case .success(let model):
             self.model = model
             createDataStorage(model: model)
+            view.setupFilterView(
+                with: FilterViewModel(
+                    filters: model.filters.map {
+                        FilterViewModel.Filter(rawValue: $0.rawValue) ?? .other
+                    }
+                )
+            )
         case .failure(let error):
             break
         }

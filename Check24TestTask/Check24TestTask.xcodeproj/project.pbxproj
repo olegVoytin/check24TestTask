@@ -44,6 +44,7 @@
 		06B4E81F28841BE300053F6A /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E81E28841BE300053F6A /* FilterView.swift */; };
 		06B4E8222884265700053F6A /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8212884265700053F6A /* FilterViewModel.swift */; };
 		06B4E82A2884354200053F6A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8292884354200053F6A /* Color.swift */; };
+		06B4E82C2884399200053F6A /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E82B2884399200053F6A /* FilterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		06B4E81E28841BE300053F6A /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		06B4E8212884265700053F6A /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		06B4E8292884354200053F6A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		06B4E82B2884399200053F6A /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 			children = (
 				06B4E81E28841BE300053F6A /* FilterView.swift */,
 				06B4E8212884265700053F6A /* FilterViewModel.swift */,
+				06B4E82B2884399200053F6A /* FilterButton.swift */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				06B4E7FD2884055F00053F6A /* NonAvailableProductCell.swift in Sources */,
 				06B4E8182884171100053F6A /* NonAvailableProductCellModel.swift in Sources */,
 				06AB6FC42883E1BE005C8685 /* SceneDelegate.swift in Sources */,
+				06B4E82C2884399200053F6A /* FilterButton.swift in Sources */,
 				06B4E80728840F6700053F6A /* NonAvailableProductCellViewModel.swift in Sources */,
 				06B4E7DC2883EFFC00053F6A /* DetailsConfigurator.swift in Sources */,
 				06B4E7DE2883F00800053F6A /* DetailsPresenter.swift in Sources */,
