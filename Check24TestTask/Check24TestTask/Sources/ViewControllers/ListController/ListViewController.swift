@@ -26,6 +26,9 @@ final class ListViewController: UIViewController, ListViewControllerViewProtocol
     private lazy var tableView: UITableView = {
         let table = UITableView().prepareForAutolayout()
         table.dataSource = self
+        table.separatorStyle = .none
+        table.register(AvailableProductCell.self, forCellReuseIdentifier: AvailableProductCell.reuseIdentifier)
+        table.register(NonAvailableProductCell.self, forCellReuseIdentifier: NonAvailableProductCell.reuseIdentifier)
         return table
     }()
 

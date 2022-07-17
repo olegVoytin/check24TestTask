@@ -21,13 +21,17 @@ final class ApiService: ApiServiceProtocol {
         guard let url = RestActions.getProductList.actionURL else { return }
         let task = session.dataTask(with: url) { data, _, error in
             if let error = error {
-                onComplete(.failure(error))
+                DispatchQueue.main.async {
+                    onComplete(.failure(error))
+                }
                 return
             }
 
             if let data = data {
                 if let result: ProductListModel = data.decode() {
-                    onComplete(.success(result))
+                    DispatchQueue.main.async {
+                        onComplete(.success(result))
+                    }
                 } else {
                     // cannot decode
                 }

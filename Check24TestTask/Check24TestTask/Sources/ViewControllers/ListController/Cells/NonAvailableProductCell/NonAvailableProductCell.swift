@@ -15,6 +15,8 @@ final class NonAvailableProductCell: TableViewCell {
         static let verticalOffset: CGFloat = 4
     }
 
+    private let cellBackgroundView = UIView().prepareForAutolayout()
+
     private let productImageView: UIImageView = {
         let imageView = UIImageView().prepareForAutolayout()
         imageView.contentMode = .scaleAspectFit
@@ -48,10 +50,13 @@ final class NonAvailableProductCell: TableViewCell {
     override func setupView() {
         createHierarchy()
         setupConstraints()
+        setupBorder()
     }
 
     func setup(with viewModel: NonAvailableProductCellViewModel) {
-
+        nameLabel.text = viewModel.name
+        descriptionLabel.text = viewModel.description
+        productImageView.image = #imageLiteral(resourceName: "circle")
     }
 }
 
@@ -64,26 +69,50 @@ private extension NonAvailableProductCell {
     }
 
     func createHierarchy() {
-        contentView.addSubview(stackView)
+        contentView.addSubview(cellBackgroundView)
+        cellBackgroundView.addSubview(stackView)
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(starsView)
-        contentView.addSubview(productImageView)
+        cellBackgroundView.addSubview(productImageView)
     }
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.borderOffset),
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.borderOffset),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.borderOffset),
-
-            productImageView.leftAnchor.constraint(equalTo: stackView.rightAnchor, constant: Constants.offsetToImage),
-            productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.borderOffset),
-            productImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: Constants.borderOffset),
-            productImageView.bottomAnchor.constraint(
-                equalTo: contentView.bottomAnchor,
+            cellBackgroundView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.borderOffset),
+            cellBackgroundView.rightAnchor.constraint(
+                equalTo: contentView.rightAnchor,
                 constant: -Constants.borderOffset
             ),
+            cellBackgroundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            cellBackgroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+
+            stackView.leftAnchor.constraint(equalTo: cellBackgroundView.leftAnchor, constant: Constants.borderOffset),
+            stackView.topAnchor.constraint(equalTo: cellBackgroundView.topAnchor, constant: Constants.borderOffset),
+            stackView.bottomAnchor.constraint(
+                equalTo: cellBackgroundView.bottomAnchor,
+                constant: -Constants.borderOffset
+            ),
+
+            productImageView.leftAnchor.constraint(equalTo: stackView.rightAnchor, constant: Constants.offsetToImage),
+            productImageView.topAnchor.constraint(
+                equalTo: cellBackgroundView.topAnchor, constant: Constants.borderOffset
+            ),
+            productImageView.rightAnchor.constraint(
+                equalTo: cellBackgroundView.rightAnchor,
+                constant: -Constants.borderOffset
+            ),
+            productImageView.bottomAnchor.constraint(
+                equalTo: cellBackgroundView.bottomAnchor,
+                constant: -Constants.borderOffset
+            ),
+            productImageView.heightAnchor.constraint(equalToConstant: 60),
+            productImageView.widthAnchor.constraint(equalToConstant: 60),
         ])
+    }
+
+    func setupBorder() {
+        cellBackgroundView.layer.borderColor = UIColor.gray.cgColor
+        cellBackgroundView.layer.borderWidth = 1
     }
 }

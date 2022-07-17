@@ -15,6 +15,8 @@ final class AvailableProductCell: TableViewCell {
         static let verticalOffset: CGFloat = 4
     }
 
+    private let cellBackgroundView = UIView().prepareForAutolayout()
+
     private let productImageView: UIImageView = {
         let imageView = UIImageView().prepareForAutolayout()
         imageView.contentMode = .scaleAspectFit
@@ -53,10 +55,13 @@ final class AvailableProductCell: TableViewCell {
     override func setupView() {
         createHierarchy()
         setupConstraints()
+        setupBorder()
     }
 
     func setup(with viewModel: AvailableProductCellViewModel) {
-
+        nameLabel.text = viewModel.name
+        descriptionLabel.text = viewModel.description
+        productImageView.image = #imageLiteral(resourceName: "circle")
     }
 }
 
@@ -71,26 +76,41 @@ private extension AvailableProductCell {
     }
 
     func createHierarchy() {
-        contentView.addSubview(productImageView)
-        contentView.addSubview(nameView)
+        contentView.addSubview(cellBackgroundView)
+        cellBackgroundView.addSubview(productImageView)
+        cellBackgroundView.addSubview(nameView)
         nameView.addSubview(nameLabel)
         nameView.addSubview(dateLabel)
-        contentView.addSubview(descriptionLabel)
-        contentView.addSubview(priceView)
+        cellBackgroundView.addSubview(descriptionLabel)
+        cellBackgroundView.addSubview(priceView)
         priceView.addSubview(priceLabel)
         priceView.addSubview(starsView)
     }
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            productImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.borderOffset),
-            productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.borderOffset),
+            cellBackgroundView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.borderOffset),
+            cellBackgroundView.rightAnchor.constraint(
+                equalTo: contentView.rightAnchor,
+                constant: -Constants.borderOffset
+            ),
+            cellBackgroundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            cellBackgroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+
+            productImageView.leftAnchor.constraint(
+                equalTo: cellBackgroundView.leftAnchor,
+                constant: Constants.borderOffset
+            ),
+            productImageView.topAnchor.constraint(
+                equalTo: cellBackgroundView.topAnchor,
+                constant: Constants.borderOffset
+            ),
             productImageView.heightAnchor.constraint(equalToConstant: 60),
             productImageView.widthAnchor.constraint(equalToConstant: 60),
 
             nameView.leftAnchor.constraint(equalTo: productImageView.rightAnchor, constant: Constants.offsetToImage),
-            nameView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.borderOffset),
-            nameView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.borderOffset),
+            nameView.topAnchor.constraint(equalTo: cellBackgroundView.topAnchor, constant: Constants.borderOffset),
+            nameView.rightAnchor.constraint(equalTo: cellBackgroundView.rightAnchor, constant: -Constants.borderOffset),
 
             nameLabel.leftAnchor.constraint(equalTo: nameView.leftAnchor),
             nameLabel.topAnchor.constraint(equalTo: nameView.topAnchor),
@@ -101,20 +121,28 @@ private extension AvailableProductCell {
             dateLabel.topAnchor.constraint(equalTo: nameView.topAnchor),
             dateLabel.bottomAnchor.constraint(equalTo: nameView.bottomAnchor),
 
-            descriptionLabel.topAnchor.constraint(equalTo: nameView.topAnchor, constant: Constants.verticalOffset),
+            descriptionLabel.topAnchor.constraint(equalTo: nameView.bottomAnchor, constant: Constants.verticalOffset),
             descriptionLabel.leftAnchor.constraint(
                 equalTo: productImageView.rightAnchor,
                 constant: Constants.offsetToImage
             ),
             descriptionLabel.rightAnchor.constraint(
-                equalTo: contentView.rightAnchor,
+                equalTo: cellBackgroundView.rightAnchor,
                 constant: -Constants.borderOffset
             ),
 
             priceView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: Constants.verticalOffset),
             priceView.leftAnchor.constraint(equalTo: productImageView.rightAnchor, constant: Constants.offsetToImage),
-            priceView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.borderOffset),
-            priceView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: Constants.borderOffset),
+            priceView.bottomAnchor.constraint(
+                equalTo: cellBackgroundView.bottomAnchor,
+                constant: -Constants.borderOffset
+            ),
+            priceView.rightAnchor.constraint(equalTo: cellBackgroundView.rightAnchor, constant: Constants.borderOffset),
         ])
+    }
+
+    func setupBorder() {
+        cellBackgroundView.layer.borderColor = UIColor.gray.cgColor
+        cellBackgroundView.layer.borderWidth = 1
     }
 }
