@@ -30,11 +30,14 @@ final class AvailableProductCell: TableViewCell {
 
     private let dateLabel: UILabel = {
         let label = UILabel().prepareForAutolayout()
+        label.textColor = .gray
         return label
     }()
 
     private let descriptionLabel: UILabel = {
         let label = UILabel().prepareForAutolayout()
+        label.textColor = .gray
+        label.numberOfLines = 0
         return label
     }()
 
@@ -61,7 +64,32 @@ final class AvailableProductCell: TableViewCell {
     func setup(with viewModel: AvailableProductCellViewModel) {
         nameLabel.text = viewModel.name
         descriptionLabel.text = viewModel.description
-        productImageView.image = #imageLiteral(resourceName: "circle")
+        dateLabel.text = getDateString(timestamp: viewModel.releaseDate)
+
+        switch viewModel.type {
+        case .triangle:
+            productImageView.image = #imageLiteral(resourceName: "triangle").withTintColor(
+                Color.hexStringToUIColor(hex: viewModel.colorCode),
+                renderingMode: .alwaysOriginal
+            )
+        case .circle:
+            productImageView.image = #imageLiteral(resourceName: "circle").withTintColor(
+                Color.hexStringToUIColor(hex: viewModel.colorCode),
+                renderingMode: .alwaysOriginal
+            )
+        case .hexagon:
+            productImageView.image = #imageLiteral(resourceName: "hexagon").withTintColor(
+                Color.hexStringToUIColor(hex: viewModel.colorCode),
+                renderingMode: .alwaysOriginal
+            )
+        case .square:
+            productImageView.image = #imageLiteral(resourceName: "square").withTintColor(
+                Color.hexStringToUIColor(hex: viewModel.colorCode),
+                renderingMode: .alwaysOriginal
+            )
+        case .other:
+            break
+        }
     }
 }
 
@@ -116,7 +144,7 @@ private extension AvailableProductCell {
             nameLabel.topAnchor.constraint(equalTo: nameView.topAnchor),
             nameLabel.bottomAnchor.constraint(equalTo: nameView.bottomAnchor),
 
-            dateLabel.leftAnchor.constraint(equalTo: nameLabel.rightAnchor),
+            dateLabel.leftAnchor.constraint(greaterThanOrEqualTo: nameLabel.rightAnchor),
             dateLabel.rightAnchor.constraint(equalTo: nameView.rightAnchor),
             dateLabel.topAnchor.constraint(equalTo: nameView.topAnchor),
             dateLabel.bottomAnchor.constraint(equalTo: nameView.bottomAnchor),
@@ -144,5 +172,13 @@ private extension AvailableProductCell {
     func setupBorder() {
         cellBackgroundView.layer.borderColor = UIColor.gray.cgColor
         cellBackgroundView.layer.borderWidth = 1
+    }
+
+    func getDateString(timestamp: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        return formatter.string(from: date)
     }
 }

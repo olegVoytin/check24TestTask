@@ -44,6 +44,7 @@
 		06B4E81D28841AC700053F6A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E81C28841AC700053F6A /* View.swift */; };
 		06B4E81F28841BE300053F6A /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E81E28841BE300053F6A /* FilterView.swift */; };
 		06B4E8222884265700053F6A /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8212884265700053F6A /* FilterViewModel.swift */; };
+		06B4E82A2884354200053F6A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8292884354200053F6A /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		06B4E81C28841AC700053F6A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		06B4E81E28841BE300053F6A /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		06B4E8212884265700053F6A /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		06B4E8292884354200053F6A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 				06B4E7F72884015900053F6A /* Data+Extensions.swift */,
 				06B4E7FF2884060F00053F6A /* UIView+Extensions.swift */,
 				06B4E8012884077A00053F6A /* UILabel+Extensions.swift */,
+				06B4E8292884354200053F6A /* Color.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				06AB6FC22883E1BE005C8685 /* AppDelegate.swift in Sources */,
 				06B4E7DA2883EFF100053F6A /* DetailsViewController.swift in Sources */,
 				06AB6FDC2883ED74005C8685 /* ListViewControllerPresenter.swift in Sources */,
+				06B4E82A2884354200053F6A /* Color.swift in Sources */,
 				06B4E81F28841BE300053F6A /* FilterView.swift in Sources */,
 				06B4E7FD2884055F00053F6A /* NonAvailableProductCell.swift in Sources */,
 				06B4E8182884171100053F6A /* NonAvailableProductCellModel.swift in Sources */,
