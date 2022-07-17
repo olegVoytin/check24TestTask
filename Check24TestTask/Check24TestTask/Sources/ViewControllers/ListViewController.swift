@@ -7,7 +7,13 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+protocol ListViewControllerViewProtocol: AnyObject {
+
+}
+
+final class ListViewController: UIViewController, ListViewControllerViewProtocol {
+
+    var presenter: ListViewControllerPresenterProtocol! // injected
 
     override func viewDidLoad() {
         super.viewDidLoad()

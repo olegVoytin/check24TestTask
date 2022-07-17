@@ -13,6 +13,10 @@
 		06AB6FC92883E1BE005C8685 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AB6FC72883E1BE005C8685 /* Main.storyboard */; };
 		06AB6FCB2883E1BE005C8685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06AB6FCA2883E1BE005C8685 /* Assets.xcassets */; };
 		06AB6FCE2883E1BE005C8685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06AB6FCC2883E1BE005C8685 /* LaunchScreen.storyboard */; };
+		06AB6FDA2883ED61005C8685 /* ListViewControllerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB6FD92883ED61005C8685 /* ListViewControllerConfigurator.swift */; };
+		06AB6FDC2883ED74005C8685 /* ListViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB6FDB2883ED74005C8685 /* ListViewControllerPresenter.swift */; };
+		06AB6FDE2883ED80005C8685 /* ListViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB6FDD2883ED80005C8685 /* ListViewControllerRouter.swift */; };
+		06AB6FE02883ED8B005C8685 /* ListViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB6FDF2883ED8B005C8685 /* ListViewControllerInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		06AB6FCA2883E1BE005C8685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06AB6FCD2883E1BE005C8685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06AB6FCF2883E1BE005C8685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06AB6FD92883ED61005C8685 /* ListViewControllerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerConfigurator.swift; sourceTree = "<group>"; };
+		06AB6FDB2883ED74005C8685 /* ListViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerPresenter.swift; sourceTree = "<group>"; };
+		06AB6FDD2883ED80005C8685 /* ListViewControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerRouter.swift; sourceTree = "<group>"; };
+		06AB6FDF2883ED8B005C8685 /* ListViewControllerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		06AB6FC02883E1BE005C8685 /* Check24TestTask */ = {
 			isa = PBXGroup;
 			children = (
+				06AB6FCF2883E1BE005C8685 /* Info.plist */,
 				06AB6FD72883ECB9005C8685 /* Recources */,
 				06AB6FD62883ECA6005C8685 /* Sources */,
 				06AB6FD52883EC95005C8685 /* General */,
@@ -66,7 +75,6 @@
 		06AB6FD52883EC95005C8685 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				06AB6FCF2883E1BE005C8685 /* Info.plist */,
 				06AB6FC12883E1BE005C8685 /* AppDelegate.swift */,
 				06AB6FC32883E1BE005C8685 /* SceneDelegate.swift */,
 			);
@@ -95,6 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				06AB6FC52883E1BE005C8685 /* ListViewController.swift */,
+				06AB6FD92883ED61005C8685 /* ListViewControllerConfigurator.swift */,
+				06AB6FDB2883ED74005C8685 /* ListViewControllerPresenter.swift */,
+				06AB6FDD2883ED80005C8685 /* ListViewControllerRouter.swift */,
+				06AB6FDF2883ED8B005C8685 /* ListViewControllerInteractor.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,8 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				06AB6FC62883E1BE005C8685 /* ListViewController.swift in Sources */,
+				06AB6FDA2883ED61005C8685 /* ListViewControllerConfigurator.swift in Sources */,
 				06AB6FC22883E1BE005C8685 /* AppDelegate.swift in Sources */,
+				06AB6FDC2883ED74005C8685 /* ListViewControllerPresenter.swift in Sources */,
 				06AB6FC42883E1BE005C8685 /* SceneDelegate.swift in Sources */,
+				06AB6FDE2883ED80005C8685 /* ListViewControllerRouter.swift in Sources */,
+				06AB6FE02883ED8B005C8685 /* ListViewControllerInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
