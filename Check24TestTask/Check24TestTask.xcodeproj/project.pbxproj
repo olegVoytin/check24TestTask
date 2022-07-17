@@ -28,6 +28,11 @@
 		06B4E7F12883FBE900053F6A /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7F02883FBE900053F6A /* ProductListModel.swift */; };
 		06B4E7F42883FE4000053F6A /* UnknownCaseRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7F32883FE4000053F6A /* UnknownCaseRepresentable.swift */; };
 		06B4E7F82884015900053F6A /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7F72884015900053F6A /* Data+Extensions.swift */; };
+		06B4E7FB2884054500053F6A /* AvailableProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7FA2884054500053F6A /* AvailableProductCell.swift */; };
+		06B4E7FD2884055F00053F6A /* NonAvailableProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7FC2884055F00053F6A /* NonAvailableProductCell.swift */; };
+		06B4E8002884060F00053F6A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E7FF2884060F00053F6A /* UIView+Extensions.swift */; };
+		06B4E8022884077A00053F6A /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E8012884077A00053F6A /* UILabel+Extensions.swift */; };
+		06B4E80528840C8F00053F6A /* AvailableProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +59,11 @@
 		06B4E7F02883FBE900053F6A /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
 		06B4E7F32883FE4000053F6A /* UnknownCaseRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownCaseRepresentable.swift; sourceTree = "<group>"; };
 		06B4E7F72884015900053F6A /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		06B4E7FA2884054500053F6A /* AvailableProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductCell.swift; sourceTree = "<group>"; };
+		06B4E7FC2884055F00053F6A /* NonAvailableProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonAvailableProductCell.swift; sourceTree = "<group>"; };
+		06B4E7FF2884060F00053F6A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		06B4E8012884077A00053F6A /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,7 @@
 		06AB6FD62883ECA6005C8685 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				06B4E803288407C900053F6A /* ViewModels */,
 				06B4E7F22883FE3700053F6A /* Utils */,
 				06B4E7EF2883FBC900053F6A /* Models */,
 				06B4E7E62883F19B00053F6A /* Services */,
@@ -138,6 +149,7 @@
 		06B4E7D72883EFB000053F6A /* ListController */ = {
 			isa = PBXGroup;
 			children = (
+				06B4E7F9288404EF00053F6A /* Cells */,
 				06AB6FC52883E1BE005C8685 /* ListViewController.swift */,
 				06AB6FD92883ED61005C8685 /* ListViewControllerConfigurator.swift */,
 				06AB6FDB2883ED74005C8685 /* ListViewControllerPresenter.swift */,
@@ -196,8 +208,27 @@
 			children = (
 				06B4E7F32883FE4000053F6A /* UnknownCaseRepresentable.swift */,
 				06B4E7F72884015900053F6A /* Data+Extensions.swift */,
+				06B4E7FF2884060F00053F6A /* UIView+Extensions.swift */,
+				06B4E8012884077A00053F6A /* UILabel+Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		06B4E7F9288404EF00053F6A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				06B4E7FA2884054500053F6A /* AvailableProductCell.swift */,
+				06B4E7FC2884055F00053F6A /* NonAvailableProductCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		06B4E803288407C900053F6A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				06B4E80428840C8F00053F6A /* AvailableProductCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,18 +302,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B4E8002884060F00053F6A /* UIView+Extensions.swift in Sources */,
+				06B4E7FB2884054500053F6A /* AvailableProductCell.swift in Sources */,
+				06B4E8022884077A00053F6A /* UILabel+Extensions.swift in Sources */,
 				06B4E7E92883F55900053F6A /* ServicesLocator.swift in Sources */,
 				06B4E7E02883F04500053F6A /* DetailsRouter.swift in Sources */,
 				06AB6FC62883E1BE005C8685 /* ListViewController.swift in Sources */,
 				06B4E7F82884015900053F6A /* Data+Extensions.swift in Sources */,
 				06B4E7E52883F19500053F6A /* ApiService.swift in Sources */,
 				06B4E7EE2883F99200053F6A /* RestActions.swift in Sources */,
+				06B4E80528840C8F00053F6A /* AvailableProductCellViewModel.swift in Sources */,
 				06B4E7F42883FE4000053F6A /* UnknownCaseRepresentable.swift in Sources */,
 				06AB6FDA2883ED61005C8685 /* ListViewControllerConfigurator.swift in Sources */,
 				06B4E7EC2883F68000053F6A /* LaunchViewController.swift in Sources */,
 				06AB6FC22883E1BE005C8685 /* AppDelegate.swift in Sources */,
 				06B4E7DA2883EFF100053F6A /* DetailsViewController.swift in Sources */,
 				06AB6FDC2883ED74005C8685 /* ListViewControllerPresenter.swift in Sources */,
+				06B4E7FD2884055F00053F6A /* NonAvailableProductCell.swift in Sources */,
 				06AB6FC42883E1BE005C8685 /* SceneDelegate.swift in Sources */,
 				06B4E7DC2883EFFC00053F6A /* DetailsConfigurator.swift in Sources */,
 				06B4E7DE2883F00800053F6A /* DetailsPresenter.swift in Sources */,
